@@ -1,1 +1,14 @@
 <p>login works!</p>
+<div class="form-wrapper">
+    <form #f="ngForm" (ngSubmit)="onLogin(f)">
+        <p>
+            <label for="mail">Email:</label>
+            <input type="email" id="mail" name="email" ngModel required placeholder="email" autocomplete="on">
+        </p>
+        <p>
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="password" ngModel placeholder="password" autocomplete="on">
+        </p>
+        <button type="submit" [disabled]="f.invalid">Login</button>
+    </form>
+</div>
