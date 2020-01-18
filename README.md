@@ -1,2 +1,2 @@
 # Angular
-Softuni cource
+Softuni course
