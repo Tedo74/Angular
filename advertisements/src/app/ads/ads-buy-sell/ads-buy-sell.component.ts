@@ -9,11 +9,16 @@ import { BuySell } from '../buy-sell.model';
 })
 export class AdsBuySellComponent implements OnInit {
 	adsFromFirebase: BuySell[];
+	showMyItems = false;
 	constructor(private adv: BuySellService) {}
 
 	ngOnInit() {
 		this.adv.getAllAds().subscribe((d) => {
 			this.adsFromFirebase = d;
 		});
+	}
+
+	toggleMyItems() {
+		this.showMyItems = !this.showMyItems;
 	}
 }

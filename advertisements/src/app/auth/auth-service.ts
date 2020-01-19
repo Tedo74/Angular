@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService {
 	authChange = new Subject<boolean>();
+	private userId = '';
 	private token = '';
 	public userName = '';
 	constructor(private router: Router) {}
@@ -21,6 +22,7 @@ export class AuthService {
 					this.authChange.next(this.isAuth());
 					this.router.navigate([ '/home' ]);
 				});
+				this.setUserId();
 			})
 			.catch((err) => {
 				console.log(err);
@@ -37,6 +39,7 @@ export class AuthService {
 					this.authChange.next(this.isAuth());
 					this.router.navigate([ '/home' ]);
 				});
+				this.setUserId();
 			})
 			.catch((err) => {
 				console.log(err);
@@ -58,5 +61,18 @@ export class AuthService {
 
 	getToken() {
 		return this.token;
+	}
+
+	setUserId() {
+		auth().onAuthStateChanged((user) => {
+			if (user) {
+				// console.log(user.uid);
+				this.userId = user.uid;
+			}
+		});
+	}
+
+	getUserId() {
+		return this.userId;
 	}
 }

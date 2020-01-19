@@ -1,10 +1,9 @@
 <p>Buy-Sell</p>
 <div class="buy-sell-ads" *ngIf="adsFromFirebase">
-    <div class="all-items" *ngFor="let item of adsFromFirebase">
-        <p>{{item.name}}</p>
-        <img [src]="item?.image" alt="item pic" *ngIf="item.image">
-        <p>{{item.details}}</p>
-        <p>{{item.price}}</p>
-    <p>phone: {{item.phone}} <span>{{item?.username}}</span></p>
+    <div *ngIf="!showMyItems">
+        <app-single-item-adv *ngFor="let item of adsFromFirebase" [singleItem]="item">
+        </app-single-item-adv>
     </div>
+    <button (click)="toggleMyItems()">Show / hide my items</button>
+    <app-my-items *ngIf="showMyItems" [items]="adsFromFirebase"></app-my-items>
 </div>

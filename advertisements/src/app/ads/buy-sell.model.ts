@@ -6,4 +6,5 @@ export interface BuySell {
 	details: string;
 	phone: number;
 	username?: string;
+	userId: string;
 }

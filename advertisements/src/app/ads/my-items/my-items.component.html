@@ -1,0 +1,6 @@
+<p>---my-items works!----</p>
+<div *ngIf="myItems">
+    <app-single-item-adv *ngFor="let item of myItems" [singleItem]="item">
+    </app-single-item-adv>
+</div>
+<p *ngIf="!myItems">You have not items!</p>

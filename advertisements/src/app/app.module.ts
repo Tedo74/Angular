@@ -13,6 +13,8 @@ import { AuthService } from './auth/auth-service';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AdsBuySellComponent } from './ads/ads-buy-sell/ads-buy-sell.component';
 import { PostAdvertisementComponent } from './ads/post-advertisement/post-advertisement.component';
+import { SingleItemAdvComponent } from './ads/single-item-adv/single-item-adv.component';
+import { MyItemsComponent } from './ads/my-items/my-items.component';
 
 @NgModule({
 	declarations: [
@@ -23,7 +25,9 @@ import { PostAdvertisementComponent } from './ads/post-advertisement/post-advert
 		LoginComponent,
 		LandingPageComponent,
 		AdsBuySellComponent,
-		PostAdvertisementComponent
+		PostAdvertisementComponent,
+		SingleItemAdvComponent,
+		MyItemsComponent
 	],
 	imports: [ BrowserModule, AppRoutingModule, FormsModule, HttpClientModule ],
 	providers: [ AuthService ],

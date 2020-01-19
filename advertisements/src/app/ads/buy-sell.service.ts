@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth/auth-service';
 import { map } from 'rxjs/operators';
+import { BuySell } from './buy-sell.model';
 
 const baseUrl = 'https://buy-and-sell-7485e.firebaseio.com/ads/';
 
@@ -26,5 +27,12 @@ export class BuySellService {
 				})
 			);
 		}
+	}
+
+	post(data: BuySell) {
+		let token = this.authServ.getToken();
+		let userId = this.authServ.getUserId();
+		// console.log(userId);
+		return this.http.post(baseUrl + '.json?auth=' + token, { ...data, userId });
 	}
 }
