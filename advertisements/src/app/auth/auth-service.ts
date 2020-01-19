@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { auth } from 'firebase';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
 	authChange = new Subject<boolean>();
 	private token = '';
-	constructor() {}
+	public userName = '';
+	constructor(private router: Router) {}
 
 	register(email: string, pass: string) {
 		// firebase
@@ -17,6 +19,7 @@ export class AuthService {
 				auth().currentUser.getIdToken().then((t) => {
 					this.token = t;
 					this.authChange.next(this.isAuth());
+					this.router.navigate([ '/home' ]);
 				});
 			})
 			.catch((err) => {
@@ -28,10 +31,11 @@ export class AuthService {
 		auth()
 			.signInWithEmailAndPassword(email, pass)
 			.then((data) => {
-				console.log(data);
+				// console.log(data);
 				auth().currentUser.getIdToken().then((t) => {
 					this.token = t;
 					this.authChange.next(this.isAuth());
+					this.router.navigate([ '/home' ]);
 				});
 			})
 			.catch((err) => {
@@ -45,5 +49,14 @@ export class AuthService {
 			return true;
 		}
 		return false;
+	}
+
+	logout() {
+		this.token = '';
+		this.authChange.next(this.isAuth());
+	}
+
+	getToken() {
+		return this.token;
 	}
 }

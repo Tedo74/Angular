@@ -10,6 +10,9 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth/auth-service';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AdsBuySellComponent } from './ads/ads-buy-sell/ads-buy-sell.component';
+import { PostAdvertisementComponent } from './ads/post-advertisement/post-advertisement.component';
 
 @NgModule({
 	declarations: [
@@ -17,7 +20,10 @@ import { AuthService } from './auth/auth-service';
 		NavigationComponent,
 		HomeComponent,
 		RegisterComponent,
-		LoginComponent
+		LoginComponent,
+		LandingPageComponent,
+		AdsBuySellComponent,
+		PostAdvertisementComponent
 	],
 	imports: [ BrowserModule, AppRoutingModule, FormsModule, HttpClientModule ],
 	providers: [ AuthService ],
