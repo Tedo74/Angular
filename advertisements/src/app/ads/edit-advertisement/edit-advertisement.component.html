@@ -1,0 +1,32 @@
+<p>post-advertisement works!</p>
+<div class="form-wrapper">
+    <form #f="ngForm" (ngSubmit)="onEdit(f)" *ngIf="itemAdv">
+        <p>
+            <label for="product-name">Product name: </label>
+            <input type="text" id="product-name" name="name" [(ngModel)]="itemAdv.name" required>
+        </p>
+        <p>
+            <label for="image-url">Image url: </label>
+            <input type="text" id="image-url" name="image" [(ngModel)]="itemAdv.image">
+        </p>
+        <p>
+            <label for="price">Price: </label>
+            <input type="number" id="price" name="price" [(ngModel)]="itemAdv.price" required>
+        </p>
+        <p>
+            <label for="phone">Phone: </label>
+            <input type="number" id="phone" name="phone" [(ngModel)]="itemAdv.phone" required>
+        </p>
+        <p>
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username" [(ngModel)]="itemAdv.username" required>
+        </p>
+        <p>
+            <label for="details">Details: </label>
+            <textarea name="details" id="details" cols="30" rows="10" name="details" [(ngModel)]="itemAdv.details"
+                required></textarea>
+        </p>
+
+        <button type="submit" [disabled]="f.invalid">Edit</button>
+    </form>
+</div>

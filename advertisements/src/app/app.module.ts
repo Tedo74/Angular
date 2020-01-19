@@ -15,6 +15,7 @@ import { AdsBuySellComponent } from './ads/ads-buy-sell/ads-buy-sell.component';
 import { PostAdvertisementComponent } from './ads/post-advertisement/post-advertisement.component';
 import { SingleItemAdvComponent } from './ads/single-item-adv/single-item-adv.component';
 import { MyItemsComponent } from './ads/my-items/my-items.component';
+import { EditAdvertisementComponent } from './ads/edit-advertisement/edit-advertisement.component';
 
 @NgModule({
 	declarations: [
@@ -27,7 +28,8 @@ import { MyItemsComponent } from './ads/my-items/my-items.component';
 		AdsBuySellComponent,
 		PostAdvertisementComponent,
 		SingleItemAdvComponent,
-		MyItemsComponent
+		MyItemsComponent,
+		EditAdvertisementComponent
 	],
 	imports: [ BrowserModule, AppRoutingModule, FormsModule, HttpClientModule ],
 	providers: [ AuthService ],

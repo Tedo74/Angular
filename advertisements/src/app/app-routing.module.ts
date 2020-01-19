@@ -7,11 +7,17 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AuthGuard } from './auth/auth.guard';
 import { PostAdvertisementComponent } from './ads/post-advertisement/post-advertisement.component';
+import { EditAdvertisementComponent } from './ads/edit-advertisement/edit-advertisement.component';
 
 const routes: Routes = [
-	{ path: '', component: LandingPageComponent },
+	{ path: '', pathMatch: 'full', component: LandingPageComponent },
 	{ path: 'home', component: HomeComponent, canActivate: [ AuthGuard ] },
 	{ path: 'post', component: PostAdvertisementComponent, canActivate: [ AuthGuard ] },
+	{
+		path: 'edit/:id',
+		component: EditAdvertisementComponent,
+		canActivate: [ AuthGuard ]
+	},
 	{ path: 'login', component: LoginComponent },
 	{ path: 'register', component: RegisterComponent }
 ];

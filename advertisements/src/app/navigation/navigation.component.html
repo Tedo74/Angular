@@ -1,5 +1,6 @@
 <p>navigation works!</p>
 <div class="nav">
+    <p *ngIf="nikname">Hello {{nikname}}</p>
     <ul>
         <li *ngIf="!isAuth"><a routerLink="/">Home</a></li>
         <li *ngIf="isAuth"><a routerLink="/home">Home</a></li>

@@ -6,9 +6,11 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService {
 	authChange = new Subject<boolean>();
+	nikChange = new Subject<string>();
 	private userId = '';
 	private token = '';
-	public userName = '';
+	private userEmail = '';
+	public userNik = '';
 	constructor(private router: Router) {}
 
 	register(email: string, pass: string) {
@@ -66,13 +68,27 @@ export class AuthService {
 	setUserId() {
 		auth().onAuthStateChanged((user) => {
 			if (user) {
-				// console.log(user.uid);
+				this.userEmail = user.email;
+				this.setUserNik(user.email);
 				this.userId = user.uid;
+				this.setUserNik(user.email);
+				this.nikChange.next(this.getUserNik());
 			}
 		});
 	}
 
 	getUserId() {
 		return this.userId;
+	}
+
+	private setUserNik(mail: string): void {
+		let u = mail.split('@')[0];
+		this.userNik = u.trim();
+	}
+	getUserNik() {
+		return this.userNik;
+	}
+	advUserId() {
+		return this.userNik + this.userId.substring(0, 6);
 	}
 }

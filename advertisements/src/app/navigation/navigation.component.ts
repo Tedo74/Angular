@@ -9,17 +9,23 @@ import { Subscription } from 'rxjs';
 })
 export class NavigationComponent implements OnInit, OnDestroy {
 	isAuth = false;
+	nikname = '';
 	authSubscription: Subscription;
+	nikSubscription: Subscription;
 	constructor(private authServ: AuthService) {}
 
 	ngOnInit() {
 		this.authSubscription = this.authServ.authChange.subscribe((authStatus) => {
 			this.isAuth = authStatus;
 		});
+		this.nikSubscription = this.authServ.nikChange.subscribe((nik) => {
+			this.nikname = nik;
+		});
 	}
 
 	ngOnDestroy() {
 		this.authSubscription.unsubscribe();
+		this.nikSubscription.unsubscribe();
 	}
 
 	logout() {
