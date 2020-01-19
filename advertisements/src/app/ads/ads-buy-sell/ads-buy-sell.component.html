@@ -1,9 +1,10 @@
 <p>Buy-Sell</p>
+<button (click)="toggleMyItems()">Show / hide my items</button>
 <div class="buy-sell-ads" *ngIf="adsFromFirebase">
     <div *ngIf="!showMyItems">
         <app-single-item-adv *ngFor="let item of adsFromFirebase" [singleItem]="item">
         </app-single-item-adv>
     </div>
-    <button (click)="toggleMyItems()">Show / hide my items</button>
-    <app-my-items *ngIf="showMyItems" [items]="adsFromFirebase"></app-my-items>
+    <app-my-items *ngIf="showMyItems" [items]="adsFromFirebase" (showHideOut)="refreshAfterDeleteItem($event)">
+    </app-my-items>
 </div>

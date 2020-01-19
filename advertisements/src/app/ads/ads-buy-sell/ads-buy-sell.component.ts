@@ -21,4 +21,10 @@ export class AdsBuySellComponent implements OnInit {
 	toggleMyItems() {
 		this.showMyItems = !this.showMyItems;
 	}
+	refreshAfterDeleteItem(id: string) {
+		this.toggleMyItems();
+		this.adsFromFirebase = this.adsFromFirebase.filter((i) => {
+			return i.id !== id;
+		});
+	}
 }

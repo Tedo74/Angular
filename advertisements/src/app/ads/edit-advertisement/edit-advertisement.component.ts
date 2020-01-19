@@ -21,10 +21,10 @@ export class EditAdvertisementComponent implements OnInit {
 
 	ngOnInit() {
 		this.id = this.route.snapshot.params['id'];
-		console.log(this.id);
+		// console.log(this.id);
 		this.buySellServ.getById(this.id).subscribe((data: BuySell) => {
 			this.itemAdv = data;
-			console.log(data);
+			// console.log(data);
 		});
 	}
 

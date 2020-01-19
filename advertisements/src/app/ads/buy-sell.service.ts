@@ -56,8 +56,6 @@ export class BuySellService {
 		let price: number = data.price;
 		let dataNew = { name, image, details, phone, userId, username, price };
 		let body = { [id]: dataNew };
-		console.log(id);
-		console.log(body);
 
 		return this.http.patch(baseUrl + '.json?auth=' + token, body);
 	}
