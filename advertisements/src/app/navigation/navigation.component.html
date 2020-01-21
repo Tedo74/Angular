@@ -1,6 +1,7 @@
-<p>navigation works!</p>
 <div class="nav">
-    <p *ngIf="nikname">Hello {{nikname}}</p>
+    <div class="logo">
+        <h1>Малки обяви</h1>
+    </div>
     <ul>
         <li *ngIf="!isAuth"><a routerLink="/">Home</a></li>
         <li *ngIf="isAuth"><a routerLink="/home">Home</a></li>
@@ -9,4 +10,7 @@
         <li *ngIf="isAuth"><a routerLink="/post">Post</a></li>
         <li *ngIf="isAuth"><a href="#" (click)="logout()">Logout</a></li>
     </ul>
+    <div class="nik">
+        <p *ngIf="nikname">Hello {{nikname}}</p>
+    </div>
 </div>

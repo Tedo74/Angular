@@ -1,6 +1,6 @@
-<p>login works!</p>
+<h4>Login</h4>
 <div class="form-wrapper">
-    <form #f="ngForm" (ngSubmit)="onLogin(f)">
+    <form #f="ngForm" (ngSubmit)="onLogin(f)" class="form-auth">
         <p>
             <label for="mail">Email:</label>
             <input type="email" id="mail" name="email" ngModel required placeholder="email" autocomplete="on">

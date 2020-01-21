@@ -1,1 +1,14 @@
-<p>register works!</p>
+<h4>Register</h4>
+<div class="form-wrapper">
+    <form #f="ngForm" (ngSubmit)="onReg(f)" class="form-auth">
+        <p>
+            <label for="mail">Email:</label>
+            <input type="email" id="mail" name="email" ngModel required placeholder="email" autocomplete="on">
+        </p>
+        <p>
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="password" ngModel placeholder="password" autocomplete="on">
+        </p>
+        <button type="submit" [disabled]="f.invalid">Register</button>
+    </form>
+</div>
