@@ -11,7 +11,7 @@
 .form-auth {
 	border: 2px solid white;
 	padding: 2em;
-	background-color: rgb(19, 14, 42);
+	background-color: rgb(135, 139, 142);
 	border-radius: inherit;
 }
 
@@ -23,7 +23,7 @@
 	width: 100%;
 	background-color: white;
 	font-size: 1.2em;
-	border: 1px solid white;
+	border: 2px solid rgb(3, 8, 35);
 	border-radius: 0.2em;
 }
 .form-auth label {

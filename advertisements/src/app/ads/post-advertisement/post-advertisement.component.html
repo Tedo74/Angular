@@ -1,6 +1,5 @@
-<p>post-advertisement works!</p>
 <div class="form-wrapper">
-    <form #f="ngForm" (ngSubmit)="onPost(f)">
+    <form #f="ngForm" (ngSubmit)="onPost(f)" class="form">
         <p>
             <label for="product-name">Product name: </label>
             <input type="text" id="product-name" name="name" ngModel required>
@@ -23,7 +22,7 @@
         </p>
         <p>
             <label for="details">Details: </label>
-            <textarea name="details" id="details" cols="30" rows="10" name="details" ngModel required></textarea>
+            <textarea name="details" id="details" cols="30" rows="4" name="details" ngModel required></textarea>
         </p>
 
         <button type="submit" [disabled]="f.invalid">Submit</button>
