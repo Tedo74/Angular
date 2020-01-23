@@ -1,6 +1,15 @@
-<p>post-advertisement works!</p>
 <div class="form-wrapper">
-    <form #f="ngForm" (ngSubmit)="onEdit(f)" *ngIf="itemAdv">
+    <form #f="ngForm" (ngSubmit)="onEdit(f)" *ngIf="itemAdv" class="form">
+        <div>
+            <div>
+                <input type="radio" name="category" id="buy" value="buy" [(ngModel)]="itemAdv.category">
+                <label for="buy">Buy</label>
+            </div>
+            <div>
+                <input type="radio" name="category" id="sell" value="sell" [(ngModel)]="itemAdv.category">
+                <label for="sell">Sell</label>
+            </div>
+        </div>
         <p>
             <label for="product-name">Product name: </label>
             <input type="text" id="product-name" name="name" [(ngModel)]="itemAdv.name" required>
@@ -23,7 +32,7 @@
         </p>
         <p>
             <label for="details">Details: </label>
-            <textarea name="details" id="details" cols="30" rows="10" name="details" [(ngModel)]="itemAdv.details"
+            <textarea name="details" id="details" cols="30" rows="4" name="details" [(ngModel)]="itemAdv.details"
                 required></textarea>
         </p>
 

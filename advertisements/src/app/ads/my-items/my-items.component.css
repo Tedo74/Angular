@@ -1,0 +1,8 @@
+@import url('../../../assets/cards.css');
+.my-items-container {
+	display: flex;
+}
+.single-item-wrapper {
+	margin: 0 1em;
+	border-radius: 1.5em;
+}

@@ -1,6 +1,7 @@
 export interface BuySell {
 	id: string;
 	name: string;
+	category: string;
 	image?: string;
 	price: number;
 	details: string;

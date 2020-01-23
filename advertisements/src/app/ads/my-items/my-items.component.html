@@ -1,10 +1,12 @@
 <p>---my-items works!----</p>
-<div *ngIf="myItems.length>0">
-    <div *ngFor="let item of myItems">
+<div *ngIf="myItems.length>0" class="my-items-container">
+    <div *ngFor="let item of myItems" class="single-item-wrapper">
         <app-single-item-adv [singleItem]="item">
         </app-single-item-adv>
-        <button (click)="redirect(item)">Edit</button>
-        <button (click)="delete(item)">Delete item</button>
+        <div class="adds-edit-delete">
+            <button (click)="redirect(item)">Edit</button>
+            <button (click)="delete(item)">Delete item</button>
+        </div>
     </div>
 </div>
 <p *ngIf="myItems.length<1">You have not items!</p>

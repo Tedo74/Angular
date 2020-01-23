@@ -1,6 +1,13 @@
-<p>{{singleItem.name}}</p>
-<img [src]="singleItem?.image" alt="singleItem pic" *ngIf="singleItem.image">
-<p>{{singleItem.details}}</p>
-<p>{{singleItem.price}}</p>
-<p>phone: {{singleItem.phone}} <span>{{singleItem?.username}}</span></p>
-
+<div class="single-item">
+    <div class="single-item-header">
+        <h4 class="name">{{singleItem.name}}</h4>
+    </div>
+    <p class="category">{{singleItem.category}}</p>
+    <button class="details">details</button>
+    <div class="image-wrapper">
+        <img [src]="singleItem?.image" alt="singleItem pic" *ngIf="singleItem.image">
+    </div>
+    <p class="price">{{singleItem.price}} лв.</p>
+    <!-- <p>{{singleItem.details}}</p>
+    <p class="contact">phone: {{singleItem.phone}} <span class="contact">{{singleItem?.username}}</span> -->
+</div>
