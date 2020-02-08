@@ -19,6 +19,7 @@ h4.name {
 	width: 100%;
 	padding: 0.2em;
 	background-color: rgb(3, 8, 35);
+	border: 1px solid white;
 }
 
 .image-wrapper {
@@ -50,14 +51,10 @@ h4.name {
 button.details {
 	margin: 0.5em auto;
 }
-/**wrapper--my items--**/
-.single-item-wrapper {
-	width: 336px;
-	border: 2px solid white;
-	background-color: rgb(3, 8, 35);
-}
-.adds-edit-delete {
-	display: flex;
-	justify-content: space-evenly;
-	padding: 1em;
+
+.price {
+	color: rgb(3, 8, 35);
+	font-size: 1.4em;
+	font-weight: 900;
+	margin: 0.5em auto;
 }

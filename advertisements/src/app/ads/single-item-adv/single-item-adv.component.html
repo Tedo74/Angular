@@ -3,11 +3,12 @@
         <h4 class="name">{{singleItem.name}}</h4>
     </div>
     <p class="category">{{singleItem.category}}</p>
-    <button class="details">details</button>
+    <button class="details" (click)="getDetails()">details</button>
     <div class="image-wrapper">
         <img [src]="singleItem?.image" alt="singleItem pic" *ngIf="singleItem.image">
     </div>
     <p class="price">{{singleItem.price}} лв.</p>
+    <ng-content></ng-content>
     <!-- <p>{{singleItem.details}}</p>
     <p class="contact">phone: {{singleItem.phone}} <span class="contact">{{singleItem?.username}}</span> -->
 </div>

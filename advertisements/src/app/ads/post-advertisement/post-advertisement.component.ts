@@ -14,9 +14,7 @@ export class PostAdvertisementComponent implements OnInit {
 	ngOnInit() {}
 
 	onPost(f: NgForm) {
-		this.buySellServ.post(f.value).subscribe((resp) => {
-			// console.log(resp);
-			this.router.navigate([ '/home' ]);
-		});
+		this.buySellServ.post(f.value);
+		this.router.navigate([ '/home' ]);
 	}
 }

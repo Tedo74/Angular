@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BuySell } from '../buy-sell.model';
+import { BuySellService } from '../buy-sell.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-single-item-adv',
@@ -8,7 +10,12 @@ import { BuySell } from '../buy-sell.model';
 })
 export class SingleItemAdvComponent implements OnInit {
 	@Input() singleItem: BuySell;
-	constructor() {}
+	constructor(private adv: BuySellService, private router: Router) {}
 
 	ngOnInit() {}
+
+	getDetails() {
+		this.adv.selectedItem = this.singleItem;
+		this.router.navigate([ '/details' ]);
+	}
 }

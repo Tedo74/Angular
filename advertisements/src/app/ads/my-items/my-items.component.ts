@@ -10,8 +10,8 @@ import { BuySellService } from '../buy-sell.service';
 	styleUrls: [ './my-items.component.css' ]
 })
 export class MyItemsComponent implements OnInit {
-	@Input() items: BuySell[];
-	@Output() showHideOut: EventEmitter<string> = new EventEmitter();
+	// @Input() items: BuySell[];
+	// @Output() showHideOut: EventEmitter<string> = new EventEmitter();
 	myItems: BuySell[];
 
 	constructor(
@@ -22,7 +22,7 @@ export class MyItemsComponent implements OnInit {
 
 	ngOnInit() {
 		let user = this.authServ.advUserId();
-		this.myItems = this.items.filter((i: BuySell) => {
+		this.myItems = this.buySellServ.allAds.filter((i: BuySell) => {
 			if (i.userId === user) {
 				return true;
 			}
@@ -40,10 +40,7 @@ export class MyItemsComponent implements OnInit {
 			this.router.navigate([ '/login' ]);
 			return;
 		}
-		this.buySellServ.deleteItem(id).subscribe((d) => {
-			console.log('successful deleted ', d);
-		});
-		this.showHideOut.emit(id);
+		this.buySellServ.deleteItem(id);
 		this.myItems = this.myItems.filter((i) => {
 			return i.id !== id;
 		});

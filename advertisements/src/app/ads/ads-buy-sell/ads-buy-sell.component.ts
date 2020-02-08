@@ -8,23 +8,23 @@ import { BuySell } from '../buy-sell.model';
 	styleUrls: [ './ads-buy-sell.component.css' ]
 })
 export class AdsBuySellComponent implements OnInit {
-	adsFromFirebase: BuySell[];
+	// adsFromFirebase: BuySell[];
+	get adsFromFirebase() {
+		return this.adv.allAds;
+	}
+
+	set adsFromFirebase(v: BuySell[]) {
+		this.adsFromFirebase = v;
+	}
+
 	showMyItems = false;
 	constructor(private adv: BuySellService) {}
 
 	ngOnInit() {
-		this.adv.getAllAds().subscribe((d) => {
-			this.adsFromFirebase = d;
-		});
+		this.adv.getAllAds();
 	}
 
 	toggleMyItems() {
 		this.showMyItems = !this.showMyItems;
-	}
-	refreshAfterDeleteItem(id: string) {
-		this.toggleMyItems();
-		this.adsFromFirebase = this.adsFromFirebase.filter((i) => {
-			return i.id !== id;
-		});
 	}
 }
