@@ -35,7 +35,7 @@ h4.name {
 	content: '';
 	display: block;
 	padding-top: 56.25%;
-	background-color: teal;
+	/* background-color: white; */
 }
 
 .image-wrapper img {

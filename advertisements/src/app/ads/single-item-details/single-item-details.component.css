@@ -1,0 +1,42 @@
+@import url('../../../assets/cards.css');
+
+.item-details {
+	background-color: rgb(135, 139, 142);
+	max-width: 650px;
+	margin: 2em auto;
+	border: 2px solid rgb(3, 8, 35);
+	border-radius: 0.3em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0.5em;
+	font-size: 1.2em;
+}
+
+.details,
+.contact,
+.info {
+	color: rgb(3, 8, 35);
+	font-size: 1.1em;
+	margin: 0.5em auto;
+	text-align: center;
+}
+.contact {
+	padding-top: 0.5em;
+	text-align: right;
+}
+
+.info {
+	width: 100%;
+	padding: 0 1em;
+	/* border: 2px solid rgb(3, 8, 35); */
+}
+
+.price::after {
+	content: '';
+	background-color: rgb(3, 8, 35);
+	display: block;
+	margin: 0.2em;
+	height: 5px;
+	bottom: -29px;
+}

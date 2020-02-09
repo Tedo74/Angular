@@ -40,7 +40,9 @@ export class BuySellService {
 		let userId = this.authServ.advUserId();
 		this.http
 			.post(baseUrl + '.json?auth=' + token, { ...data, userId })
-			.subscribe((d) => d);
+			.subscribe((d) => {
+				this.getAllAds();
+			});
 	}
 
 	getById(id: string) {

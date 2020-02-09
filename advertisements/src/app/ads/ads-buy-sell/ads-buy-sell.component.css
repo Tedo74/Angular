@@ -4,3 +4,6 @@
 	display: flex;
 	flex-wrap: wrap;
 }
+.items {
+	padding: 1em;
+}

@@ -1,6 +1,4 @@
-<p>single-item-details works!</p>
-
-<div class="single-item" *ngIf="selectedItem">
+<div class="item-details" *ngIf="selectedItem">
     <div class="single-item-header">
         <h4 class="name">{{selectedItem.name}}</h4>
     </div>
@@ -8,7 +6,11 @@
     <div class="image-wrapper">
         <img [src]="selectedItem?.image" alt="singleItem pic" *ngIf="selectedItem.image">
     </div>
-    <p class="price">{{selectedItem.price}} лв.</p>
-    <!-- <p>{{singleItem.details}}</p>
-    <p class="contact">phone: {{singleItem.phone}} <span class="contact">{{singleItem?.username}}</span> -->
+    <div class="info">
+        <p class="price">цена: {{selectedItem.price}} лв.</p>
+        <p class="details">{{selectedItem.details}}</p>
+        <p class="contact">телефон: {{selectedItem.phone}} -
+            <span class="contact">{{selectedItem?.username}}</span>
+        </p>
+    </div>
 </div>
