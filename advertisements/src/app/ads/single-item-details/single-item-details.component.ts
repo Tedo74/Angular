@@ -31,16 +31,14 @@ export class SingleItemDetailsComponent implements OnInit {
 		// console.log(comment);
 		if (comment) {
 			this.comments.push(comment);
+			this.commentInput.nativeElement.value = '';
+			let id = this.selectedItem.id;
+			let userId = this.selectedItem.userId;
+			this.selectedItem.comments = this.comments;
+			let data = { ...this.selectedItem, id, userId };
+			this.adv.editItem(data).subscribe((resp) => {
+				// console.log(resp);
+			});
 		}
-		this.commentInput.nativeElement.value = '';
-
-		let id = this.selectedItem.id;
-		let userId = this.selectedItem.userId;
-
-		this.selectedItem.comments = this.comments;
-		let data = { ...this.selectedItem, id, userId };
-		this.adv.editItem(data).subscribe((resp) => {
-			console.log(resp);
-		});
 	}
 }
