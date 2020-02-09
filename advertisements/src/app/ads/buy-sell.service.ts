@@ -38,8 +38,9 @@ export class BuySellService {
 	post(data: BuySell) {
 		let token = this.authServ.getToken();
 		let userId = this.authServ.advUserId();
+		let comments = [ 'comments:' ];
 		this.http
-			.post(baseUrl + '.json?auth=' + token, { ...data, userId })
+			.post(baseUrl + '.json?auth=' + token, { ...data, comments, userId })
 			.subscribe((d) => {
 				this.getAllAds();
 			});
@@ -65,7 +66,18 @@ export class BuySellService {
 		let username: string = data.username;
 		let price: number = data.price;
 		let category: string = data.category;
-		let dataNew = { name, image, details, phone, userId, username, price, category };
+		let comments: string[] = data.comments;
+		let dataNew = {
+			name,
+			image,
+			details,
+			phone,
+			userId,
+			username,
+			price,
+			category,
+			comments
+		};
 		let body = { [id]: dataNew };
 
 		return this.http.patch(baseUrl + '.json?auth=' + token, body);

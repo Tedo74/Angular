@@ -1,6 +1,6 @@
 <div class="item-details" *ngIf="selectedItem">
     <div class="single-item-header">
-        <h4 class="name">{{selectedItem.name}}</h4>
+        <h4 class="name">{{selectedItem.name | uppercase}}</h4>
     </div>
     <p class="category">{{selectedItem.category}}</p>
     <div class="image-wrapper">
@@ -12,5 +12,12 @@
         <p class="contact">телефон: {{selectedItem.phone}} -
             <span class="contact">{{selectedItem?.username}}</span>
         </p>
+    </div>
+    <div class="comments">
+        <button (click)="pushComment(commentInput.value)">comment</button>
+        <input type="text" #commentInput>
+        <ng-container *ngIf="comments">
+            <p class="comment-single" *ngFor="let comment of comments">{{comment}}</p>
+        </ng-container>
     </div>
 </div>

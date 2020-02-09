@@ -31,7 +31,8 @@ export class EditAdvertisementComponent implements OnInit {
 	onEdit(f: NgForm) {
 		let id = this.itemAdv.id;
 		let userId = this.itemAdv.userId;
-		let data = { ...f.value, id, userId };
+		let comments = this.itemAdv.comments;
+		let data = { ...f.value, comments, id, userId };
 		this.buySellServ.editItem(data).subscribe((resp) => {
 			// console.log(f.value);
 			this.router.navigate([ '/home' ]);

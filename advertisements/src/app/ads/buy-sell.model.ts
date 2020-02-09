@@ -8,4 +8,5 @@ export interface BuySell {
 	phone: number;
 	username?: string;
 	userId: string;
+	comments: string[];
 }

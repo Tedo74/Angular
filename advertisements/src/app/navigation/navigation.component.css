@@ -50,14 +50,15 @@ div.logo {
 .nav ul li {
 	border: 2px solid white;
 	border-radius: 1em;
-	margin-right: 1em;
+	margin-right: 0.5em;
+	margin-bottom: 0.2em;
 }
 
 .nav a {
 	font-size: 1.3em;
 	color: white;
 	display: block;
-	padding: 0.5em 1em;
+	padding: 0.3em 0.5em;
 }
 
 .nav li:hover {
