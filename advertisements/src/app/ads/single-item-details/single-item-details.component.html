@@ -7,6 +7,10 @@
         <div class="image-wrapper">
             <img [src]="selectedItem?.image" alt="singleItem pic" *ngIf="selectedItem.image">
         </div>
+        <div class="adds-edit-delete" *ngIf="userMatch">
+            <button (click)="redirect()">Edit</button>
+            <button (click)="delete()">Delete item</button>
+        </div>
     </section>
     <section class="part-two">
         <div class="info">

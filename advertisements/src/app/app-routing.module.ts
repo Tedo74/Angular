@@ -9,6 +9,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { PostAdvertisementComponent } from './ads/post-advertisement/post-advertisement.component';
 import { EditAdvertisementComponent } from './ads/edit-advertisement/edit-advertisement.component';
 import { SingleItemDetailsComponent } from './ads/single-item-details/single-item-details.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
 	{ path: '', pathMatch: 'full', component: LandingPageComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
 		canActivate: [ AuthGuard ]
 	},
 	{ path: 'login', component: LoginComponent },
-	{ path: 'register', component: RegisterComponent }
+	{ path: 'register', component: RegisterComponent },
+	{ path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
