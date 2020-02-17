@@ -5,7 +5,9 @@
 
 .component-name h3 {
 	text-align: center;
-	font-weight: 700;
+	font-size: 2.4em;
+	font-style: italic;
+	letter-spacing: 2px;
 }
 
 .component-name::after {

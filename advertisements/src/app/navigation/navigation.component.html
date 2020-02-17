@@ -8,7 +8,7 @@
         <li *ngIf="!isAuth"><a routerLink="/register">Register</a></li>
         <li *ngIf="!isAuth"><a routerLink="/login">Login</a></li>
         <li *ngIf="isAuth"><a routerLink="/post">Post</a></li>
-        <li *ngIf="isAuth"><a href="#" (click)="logout()">Logout</a></li>
+        <li *ngIf="isAuth"><a routerLink="/" (click)="logout()">Logout</a></li>
     </ul>
     <div class="nik">
         <p *ngIf="nikname">Hello, {{nikname}}</p>

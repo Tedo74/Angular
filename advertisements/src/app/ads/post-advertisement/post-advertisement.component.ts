@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 	styleUrls: [ './post-advertisement.component.css' ]
 })
 export class PostAdvertisementComponent implements OnInit {
+	category = 'sell';
 	constructor(private buySellServ: BuySellService, private router: Router) {}
 
 	ngOnInit() {}

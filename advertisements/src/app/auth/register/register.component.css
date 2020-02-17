@@ -6,7 +6,9 @@
 
 .component-name h3 {
 	text-align: center;
-	font-weight: 700;
+	font-size: 2.4em;
+	font-style: italic;
+	letter-spacing: 2px;
 }
 
 .component-name::after {
@@ -16,43 +18,4 @@
 	height: 4px;
 	background-color: rgb(3, 8, 35);
 	margin-bottom: 0.5em;
-}
-button:disabled {
-	background-color: grey;
-	color: darkgray;
-	cursor: not-allowed;
-}
-
-.error {
-	font-size: 1.2em;
-	padding: 0.2em 1em;
-	text-align: center;
-}
-
-li.error {
-	width: 100%;
-	background-color: rgb(3, 8, 35);
-	color: white;
-	list-style-type: none;
-	margin-bottom: 0.5em;
-	border: 2px solid white;
-	border-radius: 0.2em;
-}
-
-input.error {
-	display: block;
-	background-color: white;
-	color: red;
-	padding: 0.5em;
-	margin-bottom: 1em;
-	margin-top: 0.2em;
-	width: 100%;
-	text-align: left;
-	border-color: red;
-}
-
-@media screen and (max-width: 450px) {
-	li.error {
-		font-size: 0.8em;
-	}
 }

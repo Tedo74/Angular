@@ -37,6 +37,11 @@ textarea {
 	border-radius: 0.2em;
 	min-width: 250px;
 }
+input.error,
+textarea.error {
+	color: red;
+	border-color: red;
+}
 label {
 	color: rgb(3, 8, 35);
 	font-size: 1.2em;
@@ -62,4 +67,9 @@ button {
 button:hover {
 	background-color: white;
 	color: rgb(3, 8, 35);
+}
+button:disabled {
+	background-color: grey;
+	color: darkgray;
+	cursor: not-allowed;
 }

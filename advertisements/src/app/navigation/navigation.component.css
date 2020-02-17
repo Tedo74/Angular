@@ -10,18 +10,20 @@
 }
 
 .nik p {
+	font-family: 'Caveat', 'Georgia', 'serif';
 	/* margin-left: auto;
 	position: absolute;
 	right: 0;
     top: 0; */
 	text-align: right;
-	padding: 1em;
-	font-size: 1.4em;
-	font-style: italic;
+	padding-right: 1em;
+	font-size: 2.2em;
+	/* font-style: italic; */
 }
 div.logo {
+	padding-left: 1em;
 	/* background-color: turquoise; */
-	width: 260px;
+	width: 300px;
 	/* position: absolute;
 	left: 0;
 	top: 0; */
@@ -30,12 +32,13 @@ div.logo {
 	margin-right: 1em;
 }
 .logo h1 {
+	font-size: 3em;
 	margin: 0;
 	padding: 0;
 	cursor: pointer;
 }
 .nav .nik {
-	width: 260px;
+	width: 300px;
 	/* background-color: turquoise; */
 	/* flex: 0 0; */
 }
@@ -49,25 +52,32 @@ div.logo {
 	/* justify-content: center; */
 }
 .nav ul li {
-	border: 2px solid white;
-	border-radius: 1em;
+	/* border-right: 2px solid white; */
+	/* border-radius: 1em; */
+	border-bottom: 2px solid rgb(3, 8, 35);
 	margin-right: 0.5em;
 	margin-bottom: 0.2em;
 }
 
 .nav a {
-	font-size: 1.3em;
+	font-size: 1.8em;
 	color: white;
 	display: block;
-	padding: 0.3em 0.5em;
+	padding: 0.2em 0.5em;
+	/* font-weight: 700; */
 }
 
-.nav li:hover {
-	background-color: white;
-	color: rgb(3, 8, 35);
+.nav ul li:hover {
+	/* background-color: white;
+	color: rgb(3, 8, 35); */
+	border-bottom: 2px solid white;
+	border-color: white;
 }
+
 .nav li:hover a {
-	color: rgb(3, 8, 35);
+	/* color: rgb(3, 8, 35); */
+	color: white;
+	/* font-weight: 700; */
 }
 
 @media screen and (max-width: 1024px) {
@@ -85,5 +95,8 @@ div.logo {
 		text-align: center;
 		padding: 0;
 		padding-top: 0.5em;
+	}
+	.nav a {
+		font-size: 1.2em;
 	}
 }

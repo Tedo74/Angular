@@ -11,29 +11,33 @@
             </div>
         </div>
         <p>
-            <label for="product-name">Product name: </label>
-            <input type="text" id="product-name" name="name" [(ngModel)]="itemAdv.name" required>
+            <label for="product-name">Product name:* </label>
+            <input type="text" id="product-name" name="name" [(ngModel)]="itemAdv.name" required
+                [ngClass]="{error: !itemAdv.name}">
         </p>
         <p>
             <label for="image-url">Image url: </label>
             <input type="text" id="image-url" name="image" [(ngModel)]="itemAdv.image">
         </p>
         <p>
-            <label for="price">Price: </label>
-            <input type="number" id="price" name="price" [(ngModel)]="itemAdv.price" required>
+            <label for="price">Price:* </label>
+            <input type="number" id="price" name="price" [(ngModel)]="itemAdv.price" required
+                [ngClass]="{error: !itemAdv.price}">
         </p>
         <p>
-            <label for="phone">Phone: </label>
-            <input type="number" id="phone" name="phone" [(ngModel)]="itemAdv.phone" required>
+            <label for="phone">Phone:* </label>
+            <input type="number" id="phone" name="phone" [(ngModel)]="itemAdv.phone" required
+                [ngClass]="{error: !itemAdv.phone}">
         </p>
         <p>
-            <label for="username">Username: </label>
-            <input type="text" id="username" name="username" [(ngModel)]="itemAdv.username" required>
+            <label for="username">Username:* </label>
+            <input type="text" id="username" name="username" [(ngModel)]="itemAdv.username" required
+                [ngClass]="{error: !itemAdv.username}">
         </p>
         <p>
-            <label for="details">Details: </label>
+            <label for="details">Details:* </label>
             <textarea name="details" id="details" cols="30" rows="4" name="details" [(ngModel)]="itemAdv.details"
-                required></textarea>
+                required [ngClass]="{error: !itemAdv.details}"></textarea>
         </p>
 
         <button type="submit" [disabled]="f.invalid">Edit</button>
