@@ -1,17 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../auth-service';
 import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-register',
 	templateUrl: './register.component.html',
 	styleUrls: [ './register.component.css' ]
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
+	regErrorMessge: string;
+	errorSubscription: Subscription;
 	passCheck = false;
 	constructor(private authServ: AuthService) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.errorSubscription = this.authServ.errorMessageChange.subscribe((err) => {
+			this.regErrorMessge = err;
+		});
+	}
+
+	ngOnDestroy() {
+		this.errorSubscription.unsubscribe();
+	}
 
 	onReg(f: NgForm) {
 		this.check(f.value.password, f.value.passConfirm);

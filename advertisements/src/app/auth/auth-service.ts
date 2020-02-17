@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
+	errorMessageChange = new Subject<string>();
+	errMsg = '';
 	authChange = new Subject<boolean>();
 	nikChange = new Subject<string>();
 	private userId = '';
@@ -27,7 +29,9 @@ export class AuthService {
 				this.setUserId();
 			})
 			.catch((err) => {
-				console.log(err);
+				// console.log(err);
+				this.errMsg = err.message;
+				this.errorMessageChange.next(this.errMsg);
 				this.authChange.next(this.isAuth());
 			});
 	}
@@ -40,11 +44,14 @@ export class AuthService {
 					this.token = t;
 					this.authChange.next(this.isAuth());
 					this.router.navigate([ '/home' ]);
+					// console.log('Auth: ', t);
 				});
 				this.setUserId();
 			})
 			.catch((err) => {
-				console.log(err);
+				// console.log('ERR:', err.message);
+				this.errMsg = err.message;
+				this.errorMessageChange.next(this.errMsg);
 				this.authChange.next(this.isAuth());
 			});
 	}

@@ -23,15 +23,18 @@ button:disabled {
 	cursor: not-allowed;
 }
 
-li.error {
+.error {
 	font-size: 1.2em;
+	padding: 0.2em 1em;
+	text-align: center;
+}
+
+li.error {
 	width: 100%;
 	background-color: rgb(3, 8, 35);
 	color: white;
 	list-style-type: none;
-	padding: 0.2em 1em;
 	margin-bottom: 0.5em;
-	text-align: center;
 	border: 2px solid white;
 	border-radius: 0.2em;
 }

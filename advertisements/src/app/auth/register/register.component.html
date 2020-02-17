@@ -28,6 +28,7 @@
             <li *ngIf="passConfirm.touched && !passCheck" class="error">Password does not match!
             </li>
         </ul>
+        <p *ngIf="regErrorMessge" class="error"> {{regErrorMessge}}</p>
 
         <button type="submit" [disabled]="f.invalid||!passCheck">Register</button>
     </form>
