@@ -22,13 +22,8 @@
 }
 div.logo {
 	padding-left: 1em;
-	/* background-color: turquoise; */
 	width: 300px;
-	/* position: absolute;
-	left: 0;
-	top: 0; */
 	font-style: italic;
-	/* flex-grow: 0; */
 	margin-right: 1em;
 }
 .logo h1 {
@@ -39,8 +34,6 @@ div.logo {
 }
 .nav .nik {
 	width: 300px;
-	/* background-color: turquoise; */
-	/* flex: 0 0; */
 }
 
 .nav ul {
@@ -79,6 +72,52 @@ div.logo {
 	color: white;
 	/* font-weight: 700; */
 }
+@media screen and (max-width: 400px) {
+	.nav {
+		display: block;
+	}
+	.nav ul {
+		flex-direction: column;
+	}
+	.nav ul li {
+		border: 2px solid white;
+		display: block;
+		width: 100%;
+		margin-bottom: 1em;
+	}
+	.nav a {
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+	.nav ul li:hover {
+		background-color: white;
+		color: rgb(3, 8, 35);
+	}
+
+	.nav li:hover a {
+		color: rgb(3, 8, 35);
+	}
+
+	.nik p {
+		text-align: center;
+		padding-right: 0em;
+		font-size: 1.8em;
+	}
+
+	div.logo {
+		padding-left: 0;
+		width: 200px;
+		font-style: italic;
+		margin: 0;
+	}
+	.logo h1 {
+		font-size: 2em;
+	}
+	.nav .nik {
+		width: 200px;
+	}
+}
 
 @media screen and (max-width: 1024px) {
 	.nav {
@@ -97,6 +136,6 @@ div.logo {
 		padding-top: 0.5em;
 	}
 	.nav a {
-		font-size: 1.2em;
+		font-size: 1.5em;
 	}
 }

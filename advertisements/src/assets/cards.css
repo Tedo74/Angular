@@ -58,3 +58,9 @@ button.details {
 	font-weight: 900;
 	margin: 0.5em auto;
 }
+
+@media screen and (max-width: 400px) {
+	.single-item {
+		width: 250px;
+	}
+}

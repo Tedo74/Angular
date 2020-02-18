@@ -10,6 +10,8 @@ import { SingleItemDetailsComponent } from './single-item-details/single-item-de
 
 import { FormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
 	declarations: [
 		AdsBuySellComponent,
@@ -19,7 +21,7 @@ import { FormsModule } from '@angular/forms';
 		SingleItemAdvComponent,
 		SingleItemDetailsComponent
 	],
-	imports: [ CommonModule, FormsModule ],
+	imports: [ CommonModule, FormsModule, BrowserAnimationsModule ],
 	exports: [
 		AdsBuySellComponent,
 		EditAdvertisementComponent,

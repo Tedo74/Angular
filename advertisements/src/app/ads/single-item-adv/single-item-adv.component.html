@@ -1,4 +1,4 @@
-<div class="single-item">
+<div class="single-item" [@anime]="state" (mouseenter)="state = 'over'" (mouseleave)="state = 'normal'">
     <div class="single-item-header">
         <h4 class="name">{{singleItem.name | uppercase}}</h4>
     </div>

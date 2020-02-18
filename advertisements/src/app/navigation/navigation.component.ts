@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../auth/auth-service';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-navigation',
@@ -13,7 +13,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
 	nikname = '';
 	authSubscription: Subscription;
 	nikSubscription: Subscription;
-	constructor(private authServ: AuthService, private router: Router) {}
+	constructor(private authServ: AuthService) {}
 
 	ngOnInit() {
 		this.authSubscription = this.authServ.authChange.subscribe((authStatus) => {
@@ -33,6 +33,6 @@ export class NavigationComponent implements OnInit, OnDestroy {
 		this.authServ.logout();
 		this.isAuth = false;
 		this.nikname = '';
-		this.router.navigate([ '/' ]);
+		// this.router.navigate([ '/' ]);
 	}
 }

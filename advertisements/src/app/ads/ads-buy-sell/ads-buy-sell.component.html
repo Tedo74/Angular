@@ -1,4 +1,4 @@
-<button (click)="toggleMyItems()">Show / hide my items</button>
+<button (click)="toggleMyItems()" class="toggle-button">Show / hide my items</button>
 <div class="buy-sell-ads" *ngIf="adsFromFirebase">
     <div *ngIf="!showMyItems" class="items">
         <app-single-item-adv *ngFor="let item of adsFromFirebase" [singleItem]="item">
