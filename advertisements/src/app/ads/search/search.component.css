@@ -1,0 +1,12 @@
+.search {
+	background-color: rgb(3, 8, 35);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.search input,
+.search button {
+	margin: 0.2em;
+}

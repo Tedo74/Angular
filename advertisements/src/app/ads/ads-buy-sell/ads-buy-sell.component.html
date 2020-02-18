@@ -1,3 +1,6 @@
+<div class="search" *ngIf="adsFromFirebase">
+    <app-search [tobeFiltered]="adsFromFirebase"></app-search>
+</div>
 <button (click)="toggleMyItems()" class="toggle-button">Show / hide my items</button>
 <div class="buy-sell-ads" *ngIf="adsFromFirebase">
     <div *ngIf="!showMyItems" class="items">

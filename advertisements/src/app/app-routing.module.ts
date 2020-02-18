@@ -10,6 +10,7 @@ import { PostAdvertisementComponent } from './ads/post-advertisement/post-advert
 import { EditAdvertisementComponent } from './ads/edit-advertisement/edit-advertisement.component';
 import { SingleItemDetailsComponent } from './ads/single-item-details/single-item-details.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FilteredComponent } from './ads/filtered/filtered.component';
 
 const routes: Routes = [
 	{ path: '', pathMatch: 'full', component: LandingPageComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
 		component: EditAdvertisementComponent,
 		canActivate: [ AuthGuard ]
 	},
+	{ path: 'filtered', component: FilteredComponent, canActivate: [ AuthGuard ] },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'register', component: RegisterComponent },
 	{ path: '**', component: NotFoundComponent }

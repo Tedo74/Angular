@@ -11,6 +11,8 @@ import { SingleItemDetailsComponent } from './single-item-details/single-item-de
 import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchComponent } from './search/search.component';
+import { FilteredComponent } from './filtered/filtered.component';
 
 @NgModule({
 	declarations: [
@@ -19,7 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		MyItemsComponent,
 		PostAdvertisementComponent,
 		SingleItemAdvComponent,
-		SingleItemDetailsComponent
+		SingleItemDetailsComponent,
+		SearchComponent,
+		FilteredComponent
 	],
 	imports: [ CommonModule, FormsModule, BrowserAnimationsModule ],
 	exports: [
@@ -28,7 +32,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		MyItemsComponent,
 		PostAdvertisementComponent,
 		SingleItemAdvComponent,
-		SingleItemDetailsComponent
+		SingleItemDetailsComponent,
+		SearchComponent,
+		FilteredComponent
 	]
 })
 export class AdsModule {}

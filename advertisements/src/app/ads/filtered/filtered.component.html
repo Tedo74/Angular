@@ -1,0 +1,10 @@
+<div class="search" *ngIf="allAds">
+    <app-search [tobeFiltered]="allAds"></app-search>
+</div>
+<div *ngIf="filteredAds" class="items">
+    <app-single-item-adv *ngFor="let item of filteredAds" [singleItem]="item">
+    </app-single-item-adv>
+</div>
+<div *ngIf="filteredAds.length<1">
+    <h4>Nothing found...</h4>
+</div>

@@ -11,6 +11,7 @@ const baseUrl = 'https://buy-and-sell-7485e.firebaseio.com/ads/';
 })
 export class BuySellService {
 	allAds: BuySell[];
+	filteredAds: BuySell[];
 	selectedItem: BuySell;
 
 	constructor(private http: HttpClient, private authServ: AuthService) {}
