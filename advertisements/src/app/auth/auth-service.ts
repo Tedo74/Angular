@@ -20,7 +20,7 @@ export class AuthService {
 		auth()
 			.createUserWithEmailAndPassword(email, pass)
 			.then((data) => {
-				console.log(data);
+				// console.log(data);
 				auth().currentUser.getIdToken().then((t) => {
 					this.token = t;
 					this.authChange.next(this.isAuth());

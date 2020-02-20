@@ -10,6 +10,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AuthModule } from './auth/auth.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AdsModule } from './ads/ads.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
 	declarations: [
@@ -25,7 +26,8 @@ import { AdsModule } from './ads/ads.module';
 		FormsModule,
 		HttpClientModule,
 		AuthModule,
-		AdsModule
+		AdsModule,
+		UserModule
 	],
 	providers: [],
 	bootstrap: [ AppComponent ]

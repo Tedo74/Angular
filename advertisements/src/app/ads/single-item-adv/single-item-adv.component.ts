@@ -41,7 +41,8 @@ export class SingleItemAdvComponent {
 	constructor(private adv: BuySellService, private router: Router) {}
 
 	getDetails() {
-		this.adv.selectedItem = this.singleItem;
-		this.router.navigate([ '/details' ]);
+		// this.adv.selectedItem = this.singleItem;
+		// this.router.navigate([ '/details' ]);
+		this.router.navigate([ '/details', this.singleItem.id ]);
 	}
 }

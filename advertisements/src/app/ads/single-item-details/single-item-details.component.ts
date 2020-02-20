@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/co
 import { BuySellService } from '../buy-sell.service';
 import { BuySell } from '../buy-sell.model';
 import { AuthService } from 'src/app/auth/auth-service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,6 +12,8 @@ import { Subscription } from 'rxjs';
 })
 export class SingleItemDetailsComponent implements OnInit, OnDestroy {
 	//selectedItem: BuySell;
+	id = '';
+	selectedItem: BuySell;
 	nikSubscription: Subscription;
 	nikname = '';
 	userMatch = false;
@@ -19,27 +21,33 @@ export class SingleItemDetailsComponent implements OnInit, OnDestroy {
 	@ViewChild('commentInput', { static: false })
 	commentInput: ElementRef;
 
-	public get selectedItem(): BuySell {
-		return this.adv.selectedItem;
-	}
+	// public get selectedItem(): BuySell {
+	// return this.adv.selectedItem;
+	// }
 
 	constructor(
 		private adv: BuySellService,
 		private authServ: AuthService,
-		private router: Router
+		private router: Router,
+		private route: ActivatedRoute
 	) {}
 
 	ngOnInit() {
-		if (this.selectedItem.comments) {
-			this.comments = this.selectedItem.comments;
-		}
-		let user = this.authServ.advUserId();
-		if (user === this.selectedItem.userId) {
-			this.userMatch = true;
-		} else {
-			this.userMatch = false;
-		}
-		this.nikname = this.authServ.getUserNik();
+		this.id = this.route.snapshot.params['id'];
+		this.adv.getById(this.id).subscribe((data: BuySell) => {
+			this.selectedItem = data;
+			if (data.comments) {
+				this.comments = data.comments;
+			}
+			let user = this.authServ.advUserId();
+			if (user === this.selectedItem.userId) {
+				this.userMatch = true;
+			} else {
+				this.userMatch = false;
+			}
+			this.nikname = this.authServ.getUserNik();
+		});
+
 		this.nikSubscription = this.authServ.nikChange.subscribe((nik) => {
 			this.nikname = nik;
 		});

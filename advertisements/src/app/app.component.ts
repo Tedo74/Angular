@@ -13,7 +13,8 @@ export class AppComponent implements OnInit {
 	ngOnInit() {
 		firebase.initializeApp({
 			apiKey: 'AIzaSyBU5GIx764tFNt1LnpEY-H8xh90F3-WpsU',
-			authDomain: 'buy-and-sell-7485e'
+			authDomain: 'buy-and-sell-7485e',
+			databaseURL: 'https://buy-and-sell-7485e.firebaseio.com/'
 		});
 	}
 }
