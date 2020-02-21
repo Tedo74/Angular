@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BuySellService } from '../buy-sell.service';
 import { BuySell } from '../buy-sell.model';
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 	templateUrl: './ads-buy-sell.component.html',
 	styleUrls: [ './ads-buy-sell.component.css' ]
 })
-export class AdsBuySellComponent implements OnInit {
+export class AdsBuySellComponent implements OnInit, OnDestroy {
 	errorSubscription: Subscription;
 	errMsg = '';
 	// adsFromFirebase: BuySell[];
@@ -28,6 +28,9 @@ export class AdsBuySellComponent implements OnInit {
 			this.errMsg = err;
 		});
 		this.buySellServ.getAllAds();
+	}
+	ngOnDestroy() {
+		this.errorSubscription.unsubscribe();
 	}
 
 	toggleMyItems() {

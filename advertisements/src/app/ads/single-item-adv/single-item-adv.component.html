@@ -7,7 +7,7 @@
     <div class="image-wrapper">
         <img [src]="singleItem?.image" alt="singleItem pic" *ngIf="singleItem.image">
     </div>
-    <p class="price">{{singleItem.price|number:'0.2-2'}} лв.</p>
+    <p class="price">{{singleItem.price|number:'1.2-2'}} лв.</p>
     <ng-content></ng-content>
     <!-- <p>{{singleItem.details}}</p>
     <p class="contact">phone: {{singleItem.phone}} <span class="contact">{{singleItem?.username}}</span> -->

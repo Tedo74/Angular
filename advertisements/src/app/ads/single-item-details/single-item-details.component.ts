@@ -61,6 +61,7 @@ export class SingleItemDetailsComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy() {
 		this.nikSubscription.unsubscribe();
+		this.errorSubscription.unsubscribe();
 	}
 
 	pushComment(comment: string) {

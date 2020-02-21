@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { BuySell } from '../buy-sell.model';
 import { AuthService } from 'src/app/auth/auth-service';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 	templateUrl: './my-items.component.html',
 	styleUrls: [ './my-items.component.css' ]
 })
-export class MyItemsComponent implements OnInit {
+export class MyItemsComponent implements OnInit, OnDestroy {
 	// @Input() items: BuySell[];
 	// @Output() showHideOut: EventEmitter<string> = new EventEmitter();
 	errorSubscription: Subscription;
@@ -35,6 +35,10 @@ export class MyItemsComponent implements OnInit {
 			}
 			return false;
 		});
+	}
+
+	ngOnDestroy() {
+		this.errorSubscription.unsubscribe();
 	}
 
 	redirect(item: BuySell) {
