@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth/auth-service';
 import { map } from 'rxjs/operators';
 import { BuySell } from './buy-sell.model';
+import { Subscription, Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 const baseUrl = 'https://buy-and-sell-7485e.firebaseio.com/ads/';
 
@@ -10,11 +12,17 @@ const baseUrl = 'https://buy-and-sell-7485e.firebaseio.com/ads/';
 	providedIn: 'root'
 })
 export class BuySellService {
+	// errMsg = '';
+	errorMessageChange = new Subject<string>();
 	allAds: BuySell[];
 	filteredAds: BuySell[];
 	selectedItem: BuySell;
 
-	constructor(private http: HttpClient, private authServ: AuthService) {}
+	constructor(
+		private http: HttpClient,
+		private authServ: AuthService,
+		private router: Router
+	) {}
 
 	getAllAds() {
 		let token = this.authServ.getToken();
@@ -42,9 +50,16 @@ export class BuySellService {
 		let comments = [ 'comments:' ];
 		this.http
 			.post(baseUrl + '.json?auth=' + token, { ...data, comments, userId })
-			.subscribe((d) => {
-				this.getAllAds();
-			});
+			.subscribe(
+				(d) => {
+					this.getAllAds();
+					this.router.navigate([ '/home' ]);
+				},
+				(error: object) => {
+					this.errorMessageChange.next('err');
+					console.log('ERROR ');
+				}
+			);
 	}
 
 	getById(id: string) {
