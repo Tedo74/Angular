@@ -17,7 +17,7 @@
     </section>
     <section class="part-two">
         <div class="info">
-            <p class="price">цена: {{selectedItem.price}} лв.</p>
+            <p class="price">цена: {{ selectedItem.price | number:'1.2-2' }} лв.</p>
             <p class="details">{{selectedItem.details}}</p>
             <p class="contact">телефон: {{selectedItem.phone}} -
                 <span class="contact">{{selectedItem?.username}}</span>

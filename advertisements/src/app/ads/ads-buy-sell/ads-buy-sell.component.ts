@@ -16,9 +16,9 @@ export class AdsBuySellComponent implements OnInit {
 		return this.buySellServ.allAds;
 	}
 
-	set adsFromFirebase(v: BuySell[]) {
-		this.adsFromFirebase = v;
-	}
+	// set adsFromFirebase(v: BuySell[]) {
+	// 	this.adsFromFirebase = v;
+	// }
 
 	showMyItems = false;
 	constructor(private buySellServ: BuySellService) {}
