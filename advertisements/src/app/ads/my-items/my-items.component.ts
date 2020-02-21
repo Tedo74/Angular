@@ -3,6 +3,7 @@ import { BuySell } from '../buy-sell.model';
 import { AuthService } from 'src/app/auth/auth-service';
 import { Router } from '@angular/router';
 import { BuySellService } from '../buy-sell.service';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-my-items',
@@ -12,6 +13,8 @@ import { BuySellService } from '../buy-sell.service';
 export class MyItemsComponent implements OnInit {
 	// @Input() items: BuySell[];
 	// @Output() showHideOut: EventEmitter<string> = new EventEmitter();
+	errorSubscription: Subscription;
+	errMsg = '';
 	myItems: BuySell[];
 
 	constructor(
@@ -21,6 +24,10 @@ export class MyItemsComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
+		this.errorSubscription = this.buySellServ.errorMessageChange.subscribe((err) => {
+			this.errMsg = err;
+		});
+
 		let user = this.authServ.advUserId();
 		this.myItems = this.buySellServ.allAds.filter((i: BuySell) => {
 			if (i.userId === user) {

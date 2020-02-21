@@ -40,7 +40,14 @@ export class BuySellService {
 						return data;
 					})
 				)
-				.subscribe((data) => (this.allAds = data));
+				.subscribe(
+					(data) => {
+						this.allAds = data;
+					},
+					(error: object) => {
+						this.errorMessageChange.next('err');
+					}
+				);
 		}
 	}
 
@@ -57,7 +64,6 @@ export class BuySellService {
 				},
 				(error: object) => {
 					this.errorMessageChange.next('err');
-					console.log('ERROR ');
 				}
 			);
 	}
@@ -101,10 +107,16 @@ export class BuySellService {
 
 	deleteItem(id: string) {
 		let token = this.authServ.getToken();
-		this.http.delete(baseUrl + id + '/.json?auth=' + token).subscribe((d) => {
-			console.log('successful deleted ', d);
-		});
-		this.refreshAfterDeleteItem(id);
+		this.http.delete(baseUrl + id + '/.json?auth=' + token).subscribe(
+			(d) => {
+				console.log('successful deleted ', d);
+				this.refreshAfterDeleteItem(id);
+				this.router.navigate([ '/home' ]);
+			},
+			(error: object) => {
+				this.errorMessageChange.next('err');
+			}
+		);
 	}
 
 	refreshAfterDeleteItem(id: string) {

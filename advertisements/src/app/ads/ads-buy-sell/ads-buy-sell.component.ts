@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BuySellService } from '../buy-sell.service';
 import { BuySell } from '../buy-sell.model';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-ads-buy-sell',
@@ -8,9 +9,11 @@ import { BuySell } from '../buy-sell.model';
 	styleUrls: [ './ads-buy-sell.component.css' ]
 })
 export class AdsBuySellComponent implements OnInit {
+	errorSubscription: Subscription;
+	errMsg = '';
 	// adsFromFirebase: BuySell[];
 	get adsFromFirebase() {
-		return this.adv.allAds;
+		return this.buySellServ.allAds;
 	}
 
 	set adsFromFirebase(v: BuySell[]) {
@@ -18,10 +21,13 @@ export class AdsBuySellComponent implements OnInit {
 	}
 
 	showMyItems = false;
-	constructor(private adv: BuySellService) {}
+	constructor(private buySellServ: BuySellService) {}
 
 	ngOnInit() {
-		this.adv.getAllAds();
+		this.errorSubscription = this.buySellServ.errorMessageChange.subscribe((err) => {
+			this.errMsg = err;
+		});
+		this.buySellServ.getAllAds();
 	}
 
 	toggleMyItems() {

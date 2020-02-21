@@ -11,6 +11,8 @@ import { Subscription } from 'rxjs';
 	styleUrls: [ './single-item-details.component.css' ]
 })
 export class SingleItemDetailsComponent implements OnInit, OnDestroy {
+	errorSubscription: Subscription;
+	errMsg = '';
 	//selectedItem: BuySell;
 	id = '';
 	selectedItem: BuySell;
@@ -33,6 +35,10 @@ export class SingleItemDetailsComponent implements OnInit, OnDestroy {
 	) {}
 
 	ngOnInit() {
+		this.errorSubscription = this.adv.errorMessageChange.subscribe((err) => {
+			this.errMsg = err;
+		});
+
 		this.id = this.route.snapshot.params['id'];
 		this.adv.getById(this.id).subscribe((data: BuySell) => {
 			this.selectedItem = data;
@@ -85,8 +91,8 @@ export class SingleItemDetailsComponent implements OnInit, OnDestroy {
 			return;
 		}
 		this.adv.deleteItem(id);
-		this.adv.getAllAds();
-		this.router.navigate([ '/home' ]);
-		return;
+		// this.adv.getAllAds();
+
+		// return;
 	}
 }

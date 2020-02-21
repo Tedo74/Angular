@@ -10,6 +10,7 @@ import { NgForm } from '@angular/forms';
 	styleUrls: [ './edit-advertisement.component.css' ]
 })
 export class EditAdvertisementComponent implements OnInit {
+	errMsg = '';
 	id: string;
 	itemAdv: BuySell;
 
@@ -22,10 +23,15 @@ export class EditAdvertisementComponent implements OnInit {
 	ngOnInit() {
 		this.id = this.route.snapshot.params['id'];
 		// console.log(this.id);
-		this.buySellServ.getById(this.id).subscribe((data: BuySell) => {
-			this.itemAdv = data;
-			// console.log(data);
-		});
+		this.buySellServ.getById(this.id).subscribe(
+			(data: BuySell) => {
+				this.itemAdv = data;
+				// console.log(data);
+			},
+			(error: object) => {
+				this.errMsg = 'ERROR';
+			}
+		);
 	}
 
 	onEdit(f: NgForm) {
@@ -33,9 +39,14 @@ export class EditAdvertisementComponent implements OnInit {
 		let userId = this.itemAdv.userId;
 		let comments = this.itemAdv.comments;
 		let data = { ...f.value, comments, id, userId };
-		this.buySellServ.editItem(data).subscribe((resp) => {
-			// console.log(f.value);
-			this.router.navigate([ '/home' ]);
-		});
+		this.buySellServ.editItem(data).subscribe(
+			(resp) => {
+				// console.log(f.value);
+				this.router.navigate([ '/home' ]);
+			},
+			(error: object) => {
+				this.errMsg = 'ERROR';
+			}
+		);
 	}
 }
