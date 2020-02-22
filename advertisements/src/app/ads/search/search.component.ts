@@ -11,18 +11,24 @@ import { Router } from '@angular/router';
 export class SearchComponent implements OnInit {
 	@Input() tobeFiltered: BuySell[] = [];
 	filtered = [];
+	hasSearchError = false;
 
 	constructor(private buySell: BuySellService, private router: Router) {}
 
 	ngOnInit() {}
 
 	onSearch(searchWord: string) {
-		this.filtered = this.tobeFiltered.filter((product) =>
-			product.name.toLowerCase().includes(searchWord.toLowerCase())
-		);
-		if (this.filtered) {
+		if (searchWord) {
+			this.filtered = this.tobeFiltered.filter((product) =>
+				product.name.toLowerCase().includes(searchWord.toLowerCase())
+			);
 			this.buySell.filteredAds = this.filtered;
 			this.router.navigate([ '/filtered' ]);
+		} else {
+			this.hasSearchError = true;
+			setTimeout(() => {
+				this.hasSearchError = false;
+			}, 2000);
 		}
 	}
 }

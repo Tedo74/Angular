@@ -10,3 +10,7 @@
 .search button {
 	margin: 0.2em;
 }
+
+.search-error {
+	border-color: red;
+}
