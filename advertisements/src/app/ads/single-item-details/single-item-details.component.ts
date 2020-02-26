@@ -46,7 +46,9 @@ export class SingleItemDetailsComponent implements OnInit, OnDestroy {
 				this.comments = data.comments;
 			}
 			let user = this.authServ.advUserId();
+			//get logged user
 			if (user === this.selectedItem.userId) {
+				//if user is creator show edit and delete buttons in tmplate
 				this.userMatch = true;
 			} else {
 				this.userMatch = false;

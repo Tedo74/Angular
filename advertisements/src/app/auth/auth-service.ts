@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { auth } from 'firebase';
+import { auth } from 'firebase/app';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+// import * as firebase from 'firebase';
 import * as firebase from 'firebase/app';
-// import { initializeApp } from 'firebase/app';
+// import 'firebase/database'; // If using Firebase database
+import 'firebase/auth'; // If using Firebase database
+// import 'firebase/storage'; // If using Firebase storage
 
 @Component({
 	selector: 'app-root',

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth/auth-service';
 import { map } from 'rxjs/operators';
 import { BuySell } from './buy-sell.model';
-import { Subscription, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
 const baseUrl = 'https://buy-and-sell-7485e.firebaseio.com/ads/';
